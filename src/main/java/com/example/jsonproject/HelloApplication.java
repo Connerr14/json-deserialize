@@ -40,6 +40,12 @@ public class HelloApplication extends Application {
             // Read employees from json response
             EmployeesResponse employeesResponse = gson.fromJson(jsonReader, EmployeesResponse.class);
 
+            // Print all the employee names
+            for (int i = 0; i < employeesResponse.Employees.size(); i++) {
+                Employee employee = employeesResponse.Employees.get(i);
+                System.out.println(employee.preferredFullName);
+            }
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
